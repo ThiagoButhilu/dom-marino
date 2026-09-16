@@ -25,6 +25,8 @@ export default function Contact() {
       description: "Reservas, pedidos e dúvidas rápidas.",
       cta: "Chamar no WhatsApp",
       href: whatsappHref,
+      badgeClass: "bg-gradient-to-br from-[#25D366] to-[#128C7E]",
+      accentClass: "text-[#25D366]",
     },
     {
       icon: InstagramIcon,
@@ -32,7 +34,9 @@ export default function Contact() {
       description: contact.instagramHandle,
       cta: "Seguir no Instagram",
       href: contact.instagramUrl,
-      image: "/images/instagram-rodizio-post.jpg",
+      badgeClass:
+        "bg-gradient-to-br from-[#F58529] via-[#DD2A7B] to-[#8134AF]",
+      accentClass: "text-[#DD2A7B]",
     },
   ];
 
@@ -74,20 +78,10 @@ export default function Contact() {
               rel="noreferrer"
               className="relative flex flex-col items-center gap-3 overflow-hidden rounded-2xl border border-creme/10 bg-carvao-soft/60 p-8 text-center transition-colors hover:border-ambar/40"
             >
-              {card.image && (
-                <>
-                  <img
-                    src={card.image}
-                    alt=""
-                    aria-hidden="true"
-                    className="absolute inset-0 h-full w-full object-cover opacity-25"
-                    loading="lazy"
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-carvao-soft/40 via-carvao-soft/80 to-carvao-soft" />
-                </>
-              )}
-              <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-ambar-light to-brasa">
-                <card.icon className="text-carvao" size={22} />
+              <span
+                className={`relative flex h-12 w-12 items-center justify-center rounded-full ${card.badgeClass}`}
+              >
+                <card.icon className="text-white" size={22} />
               </span>
               <p className="relative font-display text-lg font-bold text-creme">
                 {card.title}
@@ -95,7 +89,9 @@ export default function Contact() {
               <p className="relative text-sm text-creme/55">
                 {card.description}
               </p>
-              <span className="relative mt-1 text-xs font-bold uppercase tracking-widest text-ambar-light">
+              <span
+                className={`relative mt-1 text-xs font-bold uppercase tracking-widest ${card.accentClass}`}
+              >
                 {card.cta}
               </span>
             </motion.a>
