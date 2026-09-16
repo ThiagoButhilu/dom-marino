@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+  --color-carvao: #1a1512;
+  --color-carvao-soft: #251e19;
+  --color-creme: #fbf3e7;
+  --color-creme-soft: #f3e8d6;
+  --color-brasa: #c4401f;
+  --color-brasa-dark: #9c2f16;
+  --color-ambar: #e8a33d;
+  --color-ambar-light: #f2c268;
+
+  --font-display: "Fraunces", ui-serif, serif;
+  --font-punch: "Anton", ui-sans-serif, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-marquee: marquee 34s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-creme);
+    color: var(--color-carvao);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .grain {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.08;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Dissolve a photo into its container background instead of a hard
+     rectangular edge: fades from the top on mobile, from the left on
+     desktop, where the hero's photo meets the text panel. */
+  .fade-into-bg {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.12) 30%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.55) 68%,
+      rgba(0, 0, 0, 0.85) 85%,
+      black 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.12) 30%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.55) 68%,
+      rgba(0, 0, 0, 0.85) 85%,
+      black 100%
+    );
+  }
+
+  @media (min-width: 768px) {
+    .fade-into-bg {
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 0.12) 25%,
+        rgba(0, 0, 0, 0.3) 45%,
+        rgba(0, 0, 0, 0.55) 62%,
+        rgba(0, 0, 0, 0.85) 80%,
+        black 100%
+      );
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 0.12) 25%,
+        rgba(0, 0, 0, 0.3) 45%,
+        rgba(0, 0, 0, 0.55) 62%,
+        rgba(0, 0, 0, 0.85) 80%,
+        black 100%
+      );
+    }
+  }
+}
