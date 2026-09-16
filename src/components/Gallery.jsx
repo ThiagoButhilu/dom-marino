@@ -53,14 +53,14 @@ export default function Gallery() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className="mt-14 grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-3"
+          className="mt-14 grid grid-cols-3 gap-2 sm:gap-6"
         >
           {photos.map((photo) => (
             <motion.figure
               key={photo.src}
               variants={item}
               whileHover={{ scale: 1.02 }}
-              className="group relative aspect-[4/5] overflow-hidden rounded-xl shadow-lg sm:rounded-[2rem]"
+              className="group relative aspect-[4/5] overflow-hidden rounded-lg shadow-lg sm:rounded-[2rem]"
             >
               <img
                 src={photo.src}
@@ -69,7 +69,7 @@ export default function Gallery() {
                 loading="lazy"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-carvao/70 via-transparent to-transparent" />
-              <figcaption className="absolute bottom-2 left-3 font-display text-sm font-bold text-creme sm:bottom-5 sm:left-5 sm:text-lg">
+              <figcaption className="absolute bottom-1 left-1.5 font-display text-[10px] font-bold leading-tight text-creme sm:bottom-5 sm:left-5 sm:text-lg">
                 {photo.caption}
               </figcaption>
             </motion.figure>
