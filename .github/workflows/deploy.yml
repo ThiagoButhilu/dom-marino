@@ -31,16 +31,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: |
-          set +e
-          npm run build > build.log 2>&1
-          code=$?
-          cat build.log
-          if [ $code -ne 0 ]; then
-            esc=$(tail -c 3800 build.log | awk '{printf "%s%%0A", $0}')
-            echo "::error::$esc"
-            exit $code
-          fi
+        run: npm run build
 
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
