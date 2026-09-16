@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { contact, flavors } from "../data/siteConfig";
+import { asset } from "../lib/asset";
 
 export default function Hero() {
   const whatsappHref = `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(
@@ -59,7 +60,7 @@ export default function Hero() {
 
         <div className="relative h-full min-h-[220px] bg-carvao">
           <img
-            src="/images/galeria-rucula-bresaola.jpg"
+            src={asset("images/galeria-rucula-bresaola.jpg")}
             alt="Pizza de rúcula e bresaola sendo finalizada na Dom Marino"
             className="fade-into-bg h-full w-full object-cover"
             style={{ objectPosition: "50% 30%" }}

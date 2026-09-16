@@ -1,18 +1,19 @@
 import { motion } from "motion/react";
+import { asset } from "../lib/asset";
 
 const photos = [
   {
-    src: "/images/galeria-quatro-queijos.jpg",
+    src: asset("images/galeria-quatro-queijos.jpg"),
     alt: "Fatia de pizza quatro queijos da Dom Marino",
     caption: "Quatro Queijos",
   },
   {
-    src: "/images/galeria-rucula-bresaola.jpg",
+    src: asset("images/galeria-rucula-bresaola.jpg"),
     alt: "Pizza com rúcula e bresaola sendo finalizada",
     caption: "Rúcula & Bresaola",
   },
   {
-    src: "/images/galeria-chocolate.jpg",
+    src: asset("images/galeria-chocolate.jpg"),
     alt: "Pizza doce coberta com chocolate granulado",
     caption: "Chocolate",
   },

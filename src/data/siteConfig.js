@@ -1,5 +1,6 @@
 // Config central do site. Troque os valores marcados com "TODO" quando os
 // dados reais da unidade de Presidente Prudente estiverem disponíveis.
+import { asset } from "../lib/asset";
 
 export const brand = {
   name: "Dom Marino",
@@ -85,7 +86,7 @@ export const pillars = [
 export const menu = [
   {
     category: "Promoções",
-    image: "/images/menu-promocoes.jpg",
+    image: asset("images/menu-promocoes.jpg"),
     items: [
       {
         name: "Combo Flapts Doce",
@@ -118,7 +119,7 @@ export const menu = [
   },
   {
     category: "Pizzas Broto",
-    image: "/images/menu-broto.jpg",
+    image: asset("images/menu-broto.jpg"),
     items: [
       {
         name: "Pizza Salgada Broto",
@@ -129,7 +130,7 @@ export const menu = [
   },
   {
     category: "Pizzas Inteira",
-    image: "/images/menu-inteira.jpg",
+    image: asset("images/menu-inteira.jpg"),
     items: [
       {
         name: "Pizza Salgada Inteira",
@@ -140,7 +141,7 @@ export const menu = [
   },
   {
     category: "Pizzas Doces",
-    image: "/images/menu-doces.jpg",
+    image: asset("images/menu-doces.jpg"),
     items: [
       {
         name: "Pizza Doce Broto",
